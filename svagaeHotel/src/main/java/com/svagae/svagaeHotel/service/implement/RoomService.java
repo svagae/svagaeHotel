@@ -9,13 +9,12 @@ import com.svagae.svagaeHotel.repo.RoomRepository;
 import com.svagae.svagaeHotel.service.AwsS3Service;
 import com.svagae.svagaeHotel.service.interfac.IRoomService;
 import com.svagae.svagaeHotel.utils.Utils;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomService implements IRoomService {
@@ -98,7 +97,7 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public Response updateRoom(Long roomId, String description, BigDecimal roomPrice, MultipartFile photo) {
+    public Response updateRoom(Long roomId, String description, String roomType, BigDecimal roomPrice, MultipartFile photo) {
         Response response = new Response();
         try {
             String imageUrl = null;
@@ -171,7 +170,7 @@ public class RoomService implements IRoomService {
 
 
             response.setMessage("Successfully Deleted the Room");
-            response.setRoom(roomDTOList);
+            response.setRoomList(roomDTOList);
 
         } catch(Exception e){
             response.setStatusCode(500);
@@ -184,7 +183,7 @@ public class RoomService implements IRoomService {
     public Response getAllAvailableRooms() {
         Response response = new Response();
         try {
-           List<Room> roomList= roomRepository.getAllAvailableRooms();
+           List<Room> roomList= roomRepository.getAvailableRooms();
            List<RoomDTO> roomDTOList = Utils.mapRoomListEntityToRoomDTOList(roomList);
 
 
