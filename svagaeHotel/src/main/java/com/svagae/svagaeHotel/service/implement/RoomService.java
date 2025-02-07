@@ -11,12 +11,13 @@ import com.svagae.svagaeHotel.service.interfac.IRoomService;
 import com.svagae.svagaeHotel.utils.Utils;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
 public class RoomService implements IRoomService {
 
     @Autowired

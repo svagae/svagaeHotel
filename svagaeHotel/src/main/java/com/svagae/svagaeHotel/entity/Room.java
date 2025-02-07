@@ -36,5 +36,51 @@ public class Room {
                 '}';
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getRoomDescription() {
+        return roomDescription;
+    }
+
+    public void setRoomDescription(String roomDescription) {
+        this.roomDescription = roomDescription;
+    }
+
+    public BigDecimal getRoomPrice() {
+        return roomPrice;
+    }
+
+    public void setRoomPrice(BigDecimal roomPrice) {
+        this.roomPrice = roomPrice;
+    }
+
+    public String getRoomPhotoUrl() {
+        return roomPhotoUrl;
+    }
+
+    public void setRoomPhotoUrl(String roomPhotoUrl) {
+        this.roomPhotoUrl = roomPhotoUrl;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 }
