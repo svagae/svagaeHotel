@@ -1,6 +1,7 @@
 package com.svagae.svagaeHotel.controller;
 
 
+import com.svagae.svagaeHotel.dto.LoginRequest;
 import com.svagae.svagaeHotel.dto.Response;
 import com.svagae.svagaeHotel.entity.User;
 import com.svagae.svagaeHotel.service.interfac.IUserService;
@@ -22,5 +23,11 @@ public class AuthController {
     public ResponseEntity<Response> register(@RequestBody User user) {
         Response response = userService.register(user);
         return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<Response> login(@RequestBody LoginRequest loginRequest) {
+        Response response = userService.login(loginRequest);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+
     }
 }

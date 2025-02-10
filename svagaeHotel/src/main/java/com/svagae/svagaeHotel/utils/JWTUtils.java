@@ -22,8 +22,8 @@ public class JWTUtils {
     private final SecretKey Key;
 
     public JWTUtils() {
-        String secretKeyString = "MySuperSecureRandomGeneratedKey123456";
-        byte[] keyBytes = Base64.getDecoder().decode(secretKeyString.getBytes(StandardCharsets.UTF_8));
+        String secretKeyString = "TXlTdXBlclNlY3VyZVJhbmRvbUdlbmVyYXRlZEtleTEyMzQ1Ng==";
+        byte[] keyBytes = Base64.getDecoder().decode(secretKeyString);
         this.Key = new SecretKeySpec(keyBytes, "HmacSHA256");
     }
     public String generateToken(UserDetails userDetails) {
